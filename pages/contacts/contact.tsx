@@ -1,12 +1,16 @@
 import styles from '../../styles/Home.module.scss'
 import Heading from "../../components/heading";
+import Head from "next/head";
 
-export default function Comment() {
+export default function Contact() {
     return (
-        <div className={styles.container}>
-            <main className={styles.main}>
-                <Heading text='Comment:' tag={'h1'}/>
-            </main>
-        </div>
+        <>
+            <Head>
+                <title>Contact</title>
+            </Head>
+            <main><Heading text='Contact:' tag={'h1'}/></main>
+
+
+        </>
     );
 };

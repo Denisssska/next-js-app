@@ -1,10 +1,20 @@
-// @ts-ignore
-const Footer = ({tag, text}) => {
-    const Tag = tag || 'h1'
+import Header from "./header";
+import Footer from "./footer";
+import React from "react";
+
+type LayoutType = {
+    children: React.ReactNode
+}
+const Layout = ({children}: LayoutType) => {
+
     return (
-        <Tag>{text}</Tag>
+        <>
+            <Header/>
+            {children}
+            <Footer/>
+        </>
 
     );
 };
 
-export default Footer;
+export default Layout;

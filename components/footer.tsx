@@ -1,10 +1,14 @@
-// @ts-ignore
-const Main = ({tag, text}) => {
-    const Tag = tag || 'h1'
+import {NextPage} from "next";
+import Heading from "./heading";
+
+const Footer = () => {
+
     return (
-        <Tag>{text}</Tag>
+       <footer>
+           <Heading text={'Created by Den Yarmoshko'}/>
+       </footer>
 
     );
 };
 
-export default Main;
+export default Footer;

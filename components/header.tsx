@@ -1,10 +1,12 @@
-// @ts-ignore
-const Heading = ({tag, text}) => {
-    const Tag = tag || 'h1'
-    return (
-        <Tag>{text}</Tag>
+import React from "react";
+import NavBar from "./navBar";
 
+const Header = () => {
+    return (
+        <header>
+            <NavBar/>
+        </header>
     );
 };
 
-export default Heading;
+export default Header;
