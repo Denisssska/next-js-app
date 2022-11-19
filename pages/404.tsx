@@ -14,7 +14,7 @@ const Error = () => {
     return (
         <>
             <Head>
-                <title>404</title>
+                <title>Error</title>
             </Head>
             <main>
                 <Heading text={'404'}/>
