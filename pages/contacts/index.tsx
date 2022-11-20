@@ -1,41 +1,45 @@
-import styles from "../../styles/Home.module.scss";
-import Heading from "../../components/heading";
+import Heading from "../../components/Heading";
 import Head from "next/head";
-import {useEffect, useState} from "react";
-import {NextPage} from "next";
+import Link from "next/link";
+import ContactInfo from "../../components/ContactInfo";
 
-type objType = {
-    "id": number,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
+export type objType = {
+    "id": number
+    "name": string
+    "username": string
+    "email": string
     "address": {
-        "street": "Kulas Light",
-        "suite": "Apt. 556",
-        "city": "Gwenborough",
-        "zipcode": "92998-3874",
+        "street": string
+        "suite": string
+        "city": string
+        "zipcode": string
         "geo": {
-            "lat": "-37.3159",
-            "lng": "81.1496"
+            "lat": string
+            "lng": string
         }
     },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
+    "phone": string
+    "website": string
     "company": {
-        "name": "Romaguera-Crona",
-        "catchPhrase": "Multi-layered client-server neural-net",
-        "bs": "harness real-time e-markets"
+        "name": string
+        "catchPhrase": string
+        "bs": string
     }
 };
 
-export const getStaticProps = async ()=>{
+export const getStaticProps = async () => {
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await res.json()
-    return{
-        props:{data}
+    if (!data) {
+        return {
+            notFound: true
+        }
+    }
+    return {
+        props: {data}
     }
 }
-const Comments:({data}: { data: Array<objType> }) => JSX.Element=({data})=> {
+const Comments: ({data}: { data: Array<objType> }) => JSX.Element = ({data}) => {
 
     return (
         <>
@@ -45,8 +49,9 @@ const Comments:({data}: { data: Array<objType> }) => JSX.Element=({data})=> {
             <Heading text='Contacts list:' tag={'h1'}/>
             <main>
                 <ul>
-                    {data && data.map(({id, name, email}) => (
-                        <li key={id}><strong>{name}</strong>{email}
+                    {data && data.map(({id, name}) => (
+                        <li key={id}>
+                            <Link href={`/contacts/${id}`}>{name}</Link>
                         </li>
                     ))}
                 </ul>

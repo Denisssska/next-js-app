@@ -1,9 +1,25 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import Heading from "../components/heading";
+import Heading from "../components/Heading";
+import {GetStaticProps, GetStaticPropsContext, GetStaticPropsResult, InferGetStaticPropsType} from "next";
+import Socials from "../components/Socials";
 
-export default function Home() {
+export type SocialType = {
+    id: number
+    icon: string
+    path: string
+}
+export type SocialProps = InferGetStaticPropsType<typeof getStaticProps>
+
+export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsResult<{ socials: SocialType[] }>> => {
+    const data = await fetch('http://localhost:3000/api/socials/');
+    const socials = await data.json()
+    if (!socials) return {notFound: true};
+    return {props: {socials}};
+};
+
+const Home: ({socials}: { socials: SocialType[] }) => JSX.Element = ({socials}) => {
     return (
         <>
             <Head>
@@ -13,9 +29,11 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <Heading text='Hi Jack!' tag={'h1'}/>
+                <Heading text='Hi Den!' tag={'h1'}/>
+                <Socials socials={socials}/>
             </main>
 
         </>
     )
 }
+export default Home

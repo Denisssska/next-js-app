@@ -1,5 +1,5 @@
 import {NextPage} from "next";
-import Heading from "./heading";
+import Heading from "./Heading";
 
 const Footer = () => {
 
