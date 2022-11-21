@@ -22,6 +22,12 @@ const NavBar = () => {
                         className={pathname === path ? styles.active : undefined}>{title}</a></Link>
                 ))}
             </div>
+            {/*используется для стилей*/}
+            {/*<style jsx>{*/}
+            {/*    `nav {*/}
+            {/*      font-size: 35px;*/}
+            {/*    }`*/}
+            {/*}</style>*/}
         </nav>
     );
 };

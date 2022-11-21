@@ -1,7 +1,6 @@
 import Heading from "../../components/Heading";
 import Head from "next/head";
 import Link from "next/link";
-import ContactInfo from "../../components/ContactInfo";
 
 export type objType = {
     "id": number

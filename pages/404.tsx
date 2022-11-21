@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import Heading from "../components/Heading";
-import styles from '../styles/404.module.scss';
 import {useRouter} from "next/router";
 import Head from "next/head";
 
