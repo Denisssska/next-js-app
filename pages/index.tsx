@@ -13,7 +13,7 @@ export type SocialProps = InferGetStaticPropsType<typeof getStaticProps>
 
 export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsResult<{ socials: SocialType[] }>> => {
     try {
-        const data = await fetch(`http://localhost:3000/api//socials/`);
+        const data = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/socials/`);
         const socials = await data.json()
         if (!socials) return {notFound: true};
 
