@@ -54,6 +54,7 @@ export const getStaticPaths: GetStaticPaths = async (
 };
 
 type PostProps = InferGetStaticPropsType<typeof getStaticProps>;
+
 const Post: NextPage = ({posts}: PostProps) => {
     return (
         <>

@@ -8,9 +8,9 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <Layout>
             <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap"
-                      rel="stylesheet"/>
-                <title>App title</title>
+                {/*<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap"*/}
+                {/*      rel="stylesheet"/>*/}
+                {/*<title>App title</title>*/}
             </Head>
             <main>
                 <Component {...pageProps} />

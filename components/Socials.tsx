@@ -7,6 +7,7 @@ const Socials: ({socials}: { socials: SocialType[] }) => JSX.Element | null = ({
     if (!socials) {
         return null;
     }
+
     return (
         <>
             <Head>
